@@ -7,6 +7,7 @@ $login = '';
 $password = '';
 $fieldName = '';
 $dialId = '';
+$fileNameInDeal = 'MyFile.txt';
 
 $request = new SdfApi_Request('', '', $host, true);
 $result = $request->get(
@@ -33,7 +34,7 @@ $data = [
     'Id' => $dialId,
     'Model['.$fieldName.']' => ['Delete' =>
         [
-            'MyFile.txt',
+            $fileNameInDeal,
         ]
     ]
 ];
