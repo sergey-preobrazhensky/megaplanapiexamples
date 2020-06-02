@@ -8,8 +8,6 @@ $password = '';
 $fieldName = '';
 $dialId = '';
 
-
-$filePath = __DIR__.'/res/test.txt';
 $request = new SdfApi_Request('', '', $host, true);
 $result = $request->get(
     '/BumsCommonApiV01/User/authorize.api', array(
@@ -20,6 +18,7 @@ $result = $request->get(
 $response = json_decode(
     $result
 );
+
 var_dump($response);
 
 $accessId = $response->data->AccessId;
@@ -32,14 +31,15 @@ $request = new SdfApi_Request($accessId, $secretKey, $host, true);
 
 $data = [
     'Id' => $dialId,
-    'Model['.$fieldName.']' => ['Add' => [
+    'Model['.$fieldName.']' => ['Delete' =>
         [
-            'Content' => base64_encode(file_get_contents($filePath)),
-            'Name' => 'MyFile.txt',
+            'MyFile.txt',
         ]
-    ]]
+    ]
 ];
 
+var_dump($data);
+
 $result = $request->post('/BumsTradeApiV01/Deal/save.api', $data);
-print_r("\n\n");
+
 print_r(json_decode($result));
