@@ -206,8 +206,11 @@ class SdfApi_Request {
 			curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
 			curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
 		}
+        $proxy = "185.44.231.70:52825";
+        curl_setopt($ch, CURLOPT_PROXY, $proxy);
+        curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS4);
 
-		if ( $this->outputFile )
+        if ( $this->outputFile )
 		{
 			$fh = fopen( $this->outputFile, 'wb' );
 			curl_setopt( $ch, CURLOPT_FILE, $fh );

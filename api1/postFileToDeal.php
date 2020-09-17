@@ -9,7 +9,7 @@ $fieldName = '';
 $dialId = '';
 
 
-$filePath = __DIR__.'/res/test.txt';
+$filePath = __DIR__.'/../res/test.txt';
 $request = new SdfApi_Request('', '', $host, true);
 $result = $request->get(
     '/BumsCommonApiV01/User/authorize.api', array(
